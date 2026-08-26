@@ -1,13 +1,11 @@
 # Neovim Configuration
 
-Fork of [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim), trimmed down to a single `init.lua`.
+Personal configuration derived from [kickstart.nvim](https://github.com/nvim-lua/kickstart.nvim).
 
 ## Structure
 
 ```
-init.lua              -- Entire config: options, keymaps, autocommands, and plugins
-lua/kickstart/        -- Bundled optional plugins (none currently enabled)
-lua/custom/plugins/   -- User plugin directory (empty, import commented out)
+init.lua -- Options, keymaps, autocommands, and plugins
 ```
 
 ## Options
@@ -18,7 +16,7 @@ lua/custom/plugins/   -- User plugin directory (empty, import commented out)
 | Nerd Font | enabled | Icons throughout UI |
 | Line numbers | relative | `number` + `relativenumber` |
 | Scrolloff | 20 | Generous cursor padding |
-| Clipboard | `unnamedplus` | Synced with OS, deferred for startup perf |
+| Clipboard | `unnamedplus` | Synced with OS |
 | Undo | persistent | `undofile = true` |
 | Search | smart-case | Case-insensitive unless uppercase present |
 
@@ -44,9 +42,8 @@ lua/custom/plugins/   -- User plugin directory (empty, import commented out)
 - **vim-sleuth** — Auto-detect indent settings
 
 ### Navigation & UI
-- **telescope.nvim** — Fuzzy finder (files, grep, LSP, buffers) with fzf-native and ui-select extensions
+- **telescope.nvim** — Fuzzy finder (files, grep, LSP, buffers) with fzf-native
 - **which-key.nvim** — Shows pending keybinds (0ms delay)
-- **todo-comments.nvim** — Highlights TODO/FIXME/etc in comments
 
 ### LSP
 - **nvim-lspconfig** + **mason.nvim** — LSP management
@@ -57,9 +54,8 @@ lua/custom/plugins/   -- User plugin directory (empty, import commented out)
 - **fidget.nvim** — LSP progress indicator
 - **lazydev.nvim** — Neovim Lua API completions
 
-### Completion & Snippets
-- **blink.cmp** — Autocompletion (sources: LSP, path, snippets, lazydev)
-- **LuaSnip** — Snippet engine
+### Completion
+- **blink.cmp** — Autocompletion using Neovim's native snippet API (sources: LSP, path, snippets, lazydev)
 
 ### Formatting
 - **conform.nvim** — Format on save
@@ -71,8 +67,8 @@ lua/custom/plugins/   -- User plugin directory (empty, import commented out)
 
 ### Syntax
 - **nvim-treesitter** — Syntax highlighting and indentation
-  - Installed: bash, c, diff, html, lua, luadoc, markdown, query, vim, vimdoc, scala, typescript, tsx, javascript
-  - `auto_install = true` for unlisted languages
+  - Installed: bash, html, luadoc, scala, typescript, tsx, javascript
+  - Neovim supplies the C, Lua, Markdown, query, Vimscript, and Vimdoc parsers
 
 ### Appearance
 - **solarized.nvim** — Solarized Light colorscheme
@@ -137,12 +133,3 @@ Metals' symbol index can get out of sync with the actual compiled bytecode.
 - **Bloop log:** `~/.bloop/bloop.log`
 
 When filing bugs or asking for help, grab the relevant section from these logs first.
-
-## Not Enabled (available in `lua/kickstart/plugins/`)
-
-- `debug` — DAP debugging
-- `indent_line` — Indent guides
-- `lint` — Linting (nvim-lint)
-- `autopairs` — Auto bracket pairing
-- `neo-tree` — File explorer
-- `gitsigns` — Extended gitsigns keymaps
